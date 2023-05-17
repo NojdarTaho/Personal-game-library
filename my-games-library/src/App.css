@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 700;
+  src: url("../public/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+    format("woff2");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #ffd800;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.games {
+  list-style: none;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.games--item {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.game {
+  background-color: #e60000;
+  /* background-color: #000000; */
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+}
+
+.game--image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.game-name {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.genre {
+  margin: 5px 0;
+  background-color: #00e5ff;
+  padding: 5px 10px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+  display: inline-block;
+}
+
+.bookmark-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.bookmark {
+  width: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .games--item {
+    width: calc(50% - 20px);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 1024px) {
+  .games--item {
+    width: calc(33.33% - 20px);
   }
 }
