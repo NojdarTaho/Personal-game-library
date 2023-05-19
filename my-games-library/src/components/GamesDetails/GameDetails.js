@@ -6,6 +6,7 @@ import GameDevelopers from "./GameDevelopers";
 import GamePlatforms from "./GamePlatforms";
 import GameRatings from "./GameRatings";
 import GameDescriptions from "./GameDescriptions";
+import GameStores from "./GameStores";
 const GameDetails = () => {
   const { id } = useParams();
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
@@ -40,6 +41,7 @@ const GameDetails = () => {
           <GameGenres data={data} />
           <GameTags data={data} />
           <GamePlatforms data={data} />
+          <GameStores data={data} />
         </>
       )}
     </div>

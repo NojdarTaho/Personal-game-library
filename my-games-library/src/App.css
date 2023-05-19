@@ -116,6 +116,7 @@ body {
   margin-left: 5px;
   vertical-align: middle;
 }
+
 .genre,
 .metacritic-rating,
 .developer,
@@ -130,6 +131,41 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
   color: black;
   font-weight: bold;
+}
+.stores {
+  list-style: none;
+  padding: 0;
+}
+.genre-link {
+  text-decoration: none;
+  color: black;
+}
+.stores h2 {
+  margin-bottom: 10px;
+}
+
+.stores li {
+  margin-bottom: 5px;
+}
+
+.stores a {
+  text-decoration: none;
+}
+
+.store-link {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #00e5ff;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+  color: black;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.store-link:hover {
+  background-color: #00c6e5;
+  cursor: pointer;
 }
 
 .navbar {

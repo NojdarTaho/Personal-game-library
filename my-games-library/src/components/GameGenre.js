@@ -8,7 +8,6 @@ const GameGenre = () => {
     `https://api.rawg.io/api/games?page_size=40&genres=${id}&key=${apiKey}`
   );
   const games = data && data.results;
-  console.log(games);
   if (error) {
     return <div>{error}</div>;
   }
@@ -18,7 +17,6 @@ const GameGenre = () => {
   }
   return (
     <ul>
-      <h1>hello there</h1>
       <GamesList games={games} />
     </ul>
   );

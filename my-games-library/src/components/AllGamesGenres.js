@@ -29,7 +29,7 @@ const AllGamesGenres = () => {
                   alt={genre.name}
                   className="genre-game-image"
                 />
-                <span className="genre-game-name">{genre.name}</span>{" "}
+                <span className="genre-game-name">{genre.name}</span>
               </div>
             </Link>
           </li>

@@ -6,13 +6,13 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <Link to={"/"} className="navbar-link">
-        <h2 className="navbar-title">All genres</h2>
+        <h2 className="navbar-title">Game Genres</h2>
       </Link>
       <Link to={"/games"} className="navbar-link">
-        <h2 className="navbar-title">All games</h2>
+        <h2 className="navbar-title">Recommended Games</h2>
       </Link>
       <Link to={"/library"} className="navbar-link">
-        <h2 className="navbar-title">Collection {collection.length}</h2>
+        <h2 className="navbar-title">Collection - {collection.length}</h2>
       </Link>
       <Link to={"/search"} className="navbar-link">
         <h2 className="navbar-title">Search</h2>
