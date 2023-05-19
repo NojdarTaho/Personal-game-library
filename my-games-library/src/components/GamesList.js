@@ -11,7 +11,7 @@ const GamesList = ({ games }) => {
               <img className="game--image" src={game.background_image} alt="" />
               <h2 className="game-name">{game.name}</h2>
             </Link>
-            <h2>{game.released}</h2>
+            <h2 className="game-release">{game.released}</h2>
             <ul>
               genres:{" "}
               {game.genres.map((genre) => (

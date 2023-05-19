@@ -28,8 +28,7 @@ body {
 
 .game {
   background-color: #e60000;
-  /* background-color: #000000; */
-  color: #fff;
+  color: black;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -46,15 +45,11 @@ body {
 .game-name {
   font-size: 24px;
   margin: 10px 0;
-}
-
-.genre {
-  margin: 5px 0;
-  background-color: #00e5ff;
-  padding: 5px 10px;
-  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+  color: black;
   display: inline-block;
+}
+.game-release {
+  color: black;
 }
 
 .bookmark-buttons {
@@ -64,8 +59,158 @@ body {
 
 .bookmark {
   width: 24px;
+  height: 24px;
   margin-right: 8px;
   cursor: pointer;
+}
+
+.game-details {
+  background-color: #ffd800;
+  color: black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.game-name {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.game-description {
+  margin-bottom: 20px;
+}
+
+.metacritic-rating {
+  margin-bottom: 20px;
+}
+
+.release-date {
+  margin-bottom: 20px;
+}
+
+.developers,
+.genres,
+.tags,
+.platforms {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.genres img {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.genre,
+.metacritic-rating,
+.developer,
+.genres li,
+.tags li,
+.platforms li {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #00e5ff;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+  color: black;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #0c111b;
+  padding: 20px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navbar-link:last-child {
+  margin-right: 0;
+}
+
+.navbar-title {
+  color: #ffd800;
+  font-size: 20px;
+  margin: 0;
+}
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.genre-games-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px 20px; /* Adjust the gap values as needed */
+}
+
+.genre-game-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.genre-game-card {
+  background-color: #e60000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.genre-game-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.genre-game-name {
+  font-size: 18px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (min-width: 768px) {

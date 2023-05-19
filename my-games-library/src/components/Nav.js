@@ -4,12 +4,18 @@ import { useContext } from "react";
 const NavBar = () => {
   const { collection } = useContext(LibraryContext);
   return (
-    <nav>
-      <Link to={"/"}>
-        <h2>All games</h2>
+    <nav className="navbar">
+      <Link to={"/"} className="navbar-link">
+        <h2 className="navbar-title">All genres</h2>
       </Link>
-      <Link to={"/library"}>
-        <h2>Collection {collection.length}</h2>
+      <Link to={"/games"} className="navbar-link">
+        <h2 className="navbar-title">All games</h2>
+      </Link>
+      <Link to={"/library"} className="navbar-link">
+        <h2 className="navbar-title">Collection {collection.length}</h2>
+      </Link>
+      <Link to={"/search"} className="navbar-link">
+        <h2 className="navbar-title">Search</h2>
       </Link>
     </nav>
   );
