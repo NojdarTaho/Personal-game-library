@@ -14,6 +14,7 @@ function App() {
       <LibraryProvider>
         <Router>
           <NavBar />
+
           <Routes>
             <Route path="/" element={<AllGamesGenres />} />
             <Route path="/games" element={<AllGames />} />
