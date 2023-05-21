@@ -6,7 +6,7 @@ import {
   faTrash,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom";
 const ProgressStats = () => {
   return (
     <ul className="progress-stats-container">

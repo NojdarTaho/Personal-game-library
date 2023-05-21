@@ -12,6 +12,7 @@ import AllGames from "./components/AllGames";
 import GameTag from "./components/GameTag";
 import AllGamesTags from "./components/AllGamesTags";
 import ProgressStats from "./components/UserProgressStats/ProgressStats";
+import FinishedComponent from "./components/UserProgressStats/FinishedComponent";
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,7 @@ function App() {
               <Route path="genre/:id" element={<GameGenre />} />
               <Route path="tag/:id" element={<GameTag />} />
               <Route path="/stats" element={<ProgressStats />} />
+              <Route path="stats/finished" element={<FinishedComponent />} />
             </Routes>
           </div>
         </Router>
