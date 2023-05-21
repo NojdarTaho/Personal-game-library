@@ -12,7 +12,7 @@ const AllGames = () => {
     return <div>{error}</div>;
   }
   if (isPending) {
-    return <div>{isPending}</div>;
+    return <div className="loader-container">{isPending}</div>;
   }
   return <>{<GamesList games={games} />}</>;
 };

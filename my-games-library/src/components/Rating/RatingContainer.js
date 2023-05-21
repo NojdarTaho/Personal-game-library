@@ -14,7 +14,7 @@ const RatingContainer = ({ gameId }) => {
   return (
     <div>
       <Rating rating={rating} onRating={(rate) => setRating(rate)} count={5} />
-      <p>Your Rating - {rating}</p>
+     
     </div>
   );
 };

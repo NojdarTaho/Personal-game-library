@@ -21,7 +21,7 @@ function SearchBar() {
   }
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <div className="loader-container"> {isPending}</div>;
   }
 
   return (

@@ -7,6 +7,7 @@ import GamePlatforms from "./GamePlatforms";
 import GameRatings from "./GameRatings";
 import GameDescriptions from "./GameDescriptions";
 import GameStores from "./GameStores";
+
 const GameDetails = () => {
   const { id } = useParams();
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
@@ -20,7 +21,7 @@ const GameDetails = () => {
   }
 
   if (isPending) {
-    return <div>{isPending}</div>;
+    return <div className="loader-container">{isPending}</div>;
   }
 
   return (
@@ -34,7 +35,6 @@ const GameDetails = () => {
             alt="game-img"
           />
           <h3 className="release-date">Release Date: {data.released}</h3>
-
           <GameDescriptions data={data} />
           <GameRatings data={data} />
           <GameDevelopers data={data} />

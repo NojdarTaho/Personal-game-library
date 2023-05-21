@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 const GameGenres = ({ data }) => {
   return (
     <ul className="genres">
@@ -8,6 +9,8 @@ const GameGenres = ({ data }) => {
           <Link to="/"></Link>
           <Link className="genre-link" to={`/genre/${genre.id}`}>
             {genre.name}
+            <span className="btn__glitch">{genre.name}</span>
+
             <img src={genre.image_background} alt="genre-img" />
           </Link>
         </li>

@@ -26,7 +26,7 @@ const GameLibrary = () => {
     return <div>{error}</div>;
   }
   if (isPending) {
-    return <div>Loading...</div>;
+    return <div className="loader-container">{isPending}</div>;
   }
 
   return (

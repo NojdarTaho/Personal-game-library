@@ -3,6 +3,7 @@ import { LibraryContext } from "../context/LibraryContext";
 import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const { collection } = useContext(LibraryContext);
@@ -21,7 +22,7 @@ const NavBar = () => {
         {isOpen && (
           <div className="navbar-dropdown-content">
             <Link to={"/"} className="navbar-dropdown-link">
-              Game Genres
+              Home
             </Link>
             <Link to={"/games"} className="navbar-dropdown-link">
               Recommended Games
@@ -30,7 +31,7 @@ const NavBar = () => {
               Collection - {collection.length}
             </Link>
             <Link to={"/search"} className="navbar-dropdown-link">
-              Search
+             Search - <FontAwesomeIcon icon={faSearch} />
             </Link>
           </div>
         )}

@@ -13,7 +13,7 @@ const GameGenre = () => {
   }
 
   if (isPending) {
-    return <div>{isPending}</div>;
+    return <div className="loader-container">{isPending}</div>;
   }
   return (
     <ul>

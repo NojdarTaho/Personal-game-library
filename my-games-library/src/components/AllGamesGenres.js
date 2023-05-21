@@ -14,11 +14,11 @@ const AllGamesGenres = () => {
   }
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <div className="loader-container">{isPending}</div>;
   }
 
   return (
-    <>
+    <div>
       <Home />
       <ul className="genre-games-list">
         {genres &&
@@ -37,7 +37,7 @@ const AllGamesGenres = () => {
             </li>
           ))}
       </ul>
-    </>
+    </div>
   );
 };
 
