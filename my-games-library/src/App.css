@@ -46,17 +46,17 @@ body {
 
 .games--item {
  
-  max-width: 300px;
+  max-width: 400px;
   margin: 10px;
   display: flex;
   height: 600px;
-  width: 100%;
+
 }
 
 /* Game */
 .game {
   background-color: #ff003c;
-  opacity: 0.80;
+  opacity: 0.90;
 
   padding: 10px;
   border-radius: 5px;
@@ -87,7 +87,9 @@ body {
 }
 .game-name-container{
   margin-top: 10px;
-  background-color: #000
+  background-color: #000;
+
+  
 }
 
 /* Bookmark Buttons */
@@ -363,9 +365,29 @@ body {
 }
 
 /* Navbar */
+
+.space-between-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  margin-top: 20px;
+
+}
+
+.navbar-dropdown-link{
+  font-size: 17px;
+}
 .navbar {
   position: relative;
   background-color: #000;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+}
+.home-endpoint {
+  display: block;
+  text-decoration: none;
+  color: white;
 }
 
 .navbar-dropdown {
@@ -374,6 +396,7 @@ body {
 }
 
 .navbar-dropdown-toggle {
+  margin-top: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -382,15 +405,22 @@ body {
   border: none;
   color: white;
   font-size: 3em;
+  transition: color 0.3s ease;
+
 }
 
 .navbar-dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
+  background-color: #46dffb;
+  min-width: 20vh;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 4px;
+  padding: 10px;
+  top: 100%;
+  left: 0;
+
 }
 
 .navbar-dropdown-content a {
@@ -398,10 +428,12 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: background-color 0.3s ease;
+
 }
 
 .navbar-dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #feef00;
 }
 
 .navbar-dropdown:hover .navbar-dropdown-content {
@@ -419,6 +451,42 @@ input {
   border-radius: 5px;
   width: 300px;
   margin-bottom: 10px;
+}
+
+/* Tag Games List */
+ 
+.tag-games-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px 20px;
+}
+
+.tag-game-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tag-game-card {
+  background-color: #ff003c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+}
+
+.tag-game-image {
+  width: 100%;
+  height: auto;
+
+}
+
+.tag-game-name {
+  font-size: 20px;
+  margin: 10px 0;
 }
 
 /* Genre Games List */
@@ -478,6 +546,65 @@ input {
   color: #ffd800;
   font-size: 16px;
 }
+
+
+/* Progress Stats */
+.progress-stats-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.progress-stats-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-stats-label {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.progress-stats-label:hover {
+  cursor: pointer;
+}
+
+.progress-stats-playing {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.progress-stats-finished {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.progress-stats-plan {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.progress-stats-dropped {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.progress-stats-on-hold {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.progress-stats-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
 
 
 /* Media Queries */

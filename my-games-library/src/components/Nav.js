@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
-import { LibraryContext } from "../context/LibraryContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faSearch,
+  faEllipsisV,
+  faFire,
+  faHome,
+  faGamepad,
+  faTag,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
-  const { collection } = useContext(LibraryContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,20 +27,31 @@ const NavBar = () => {
         {isOpen && (
           <div className="navbar-dropdown-content">
             <Link to={"/"} className="navbar-dropdown-link">
-              Home
+              Home - <FontAwesomeIcon icon={faHome} />
             </Link>
             <Link to={"/games"} className="navbar-dropdown-link">
-              Recommended Games
+              Popular Games - <FontAwesomeIcon icon={faFire} />
             </Link>
             <Link to={"/library"} className="navbar-dropdown-link">
-              Collection - {collection.length}
+              Collection - <FontAwesomeIcon icon={faGamepad} />
             </Link>
             <Link to={"/search"} className="navbar-dropdown-link">
-             Search - <FontAwesomeIcon icon={faSearch} />
+              Search - <FontAwesomeIcon icon={faSearch} />
+            </Link>
+            <Link to={"/tags"} className="navbar-dropdown-link">
+              Game Tags - <FontAwesomeIcon icon={faTag} />
+            </Link>
+            <Link to={"/stats"} className="navbar-dropdown-link">
+              My Progress - <FontAwesomeIcon icon={faGamepad} />
             </Link>
           </div>
         )}
       </div>
+      <Link to={"/"} className="home-endpoint">
+        <h1>GameLibra</h1>
+      </Link>
+      <FontAwesomeIcon className="space-between-icon" icon={faEllipsisV} />
+      <h1 className="home-endpoint"> Home</h1>
     </nav>
   );
 };

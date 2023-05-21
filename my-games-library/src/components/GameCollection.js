@@ -31,8 +31,6 @@ const GameLibrary = () => {
 
   return (
     <>
-      <h1>My Game Library</h1>
-
       {addedGame.length > 0 ? (
         <GamesList games={addedGame} />
       ) : (

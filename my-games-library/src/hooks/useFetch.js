@@ -6,7 +6,6 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsPending("loading....");
     setData(null);
     setError(null);
     const source = axios.CancelToken.source();
