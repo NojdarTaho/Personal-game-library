@@ -1,3 +1,8 @@
+import { CurrentlyPlayingContext } from "../../context/CurrentlyPlayingContext";
+import { FinishedPlayingContext } from "../../context/FinishedPlayingContext";
+import { OnHoldContext } from "../../context/OnHoldContext";
+import { PlanToPlayContext } from "../../context/PlanToPlayContext";
+import { DroppedContext } from "../../context/DroppedContext"; // Import the DroppedContext
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -5,30 +10,27 @@ import {
   faCalendarPlus,
   faTrash,
   faPause,
-  faBars,
+  faEllipsisV,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext, useEffect } from "react";
-import { LibraryContext } from "../../context/LibraryContext";
 
 const DropDownStats = ({ gameId }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    addToCurrentlyPlaying,
-    currentlyId,
-    droppedId,
-    addToDropped,
-    onHoldId,
-    addToOnHold,
-    addToPlanToPlay,
-    planToPlayId,
-    finishedPlayingId,
-    addToFinishedToPlay,
-  } = useContext(LibraryContext);
+  const { addToCurrentlyPlaying, currentlyId } = useContext(
+    CurrentlyPlayingContext
+  );
+  const { addToFinishedToPlay, finishedPlayingId } = useContext(
+    FinishedPlayingContext
+  );
+  const { addToOnHold, onHoldId } = useContext(OnHoldContext);
+  const { addToPlanToPlay, planToPlayId } = useContext(PlanToPlayContext);
+  const { addToDropped, droppedId } = useContext(DroppedContext); // Use the DroppedContext
+
   const [addedToCurrentlyPlaying, setAddedToCurrentlyPlaying] = useState(false);
-  const [addedToDropped, setAddedToDropped] = useState(false);
   const [addedToOnHold, setAddedToOnHold] = useState(false);
   const [addedToPlanToPlay, setAddedToPlanToPlay] = useState(false);
   const [addedToFinishedPlaying, setAddedToFinishedPlaying] = useState(false);
+  const [addedToDropped, setAddedToDropped] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -37,20 +39,22 @@ const DropDownStats = ({ gameId }) => {
   useEffect(() => {
     setAddedToCurrentlyPlaying(currentlyId.includes(gameId));
   }, [currentlyId, gameId]);
-  useEffect(() => {
-    setAddedToDropped(droppedId.includes(gameId));
-  }, [droppedId, gameId]);
+
   useEffect(() => {
     setAddedToOnHold(onHoldId.includes(gameId));
   }, [onHoldId, gameId]);
 
   useEffect(() => {
-    setAddedToOnHold(planToPlayId.includes(gameId));
+    setAddedToPlanToPlay(planToPlayId.includes(gameId));
   }, [planToPlayId, gameId]);
 
   useEffect(() => {
-    setAddedToOnHold(planToPlayId.includes(gameId));
-  }, [planToPlayId, gameId]);
+    setAddedToFinishedPlaying(finishedPlayingId.includes(gameId));
+  }, [finishedPlayingId, gameId]);
+
+  useEffect(() => {
+    setAddedToDropped(droppedId.includes(gameId));
+  }, [droppedId, gameId]);
 
   function handleCurrentlyButtonClick() {
     addToCurrentlyPlaying(gameId);
@@ -73,61 +77,66 @@ const DropDownStats = ({ gameId }) => {
     addToFinishedToPlay(gameId);
     setAddedToFinishedPlaying(!addedToFinishedPlaying);
   }
+
   return (
     <div className="dropdown-container">
       <button className="dropdown-button" onClick={toggleMenu}>
-        <FontAwesomeIcon icon={faBars} className="dropdown-icon" />
+        <FontAwesomeIcon icon={faEllipsisV} className="dropdown-icon" />
       </button>
       {isOpen && (
         <ul className="dropdown-menu">
-          <button
-            className="dropdown-menu-item"
-            onClick={handleCurrentlyButtonClick}
-          >
-            <span className="dropdown-menu-label">
-              Currently Playing{" "}
-              <FontAwesomeIcon icon={faPlay} className="dropdown-menu-icon" />
-            </span>
-          </button>
-          <button
-            className="dropdown-menu-item"
-            onClick={handleFinishedPlayingButton}
-          >
-            <span className="dropdown-menu-label finished">
-              Finished Playing{" "}
-              <FontAwesomeIcon icon={faCheck} className="dropdown-menu-icon" />
-            </span>
-          </button>
-          <button
-            className="dropdown-menu-item"
-            onClick={handlePlanToPlayButtonClick}
-          >
-            <span className="dropdown-menu-label plan">
-              Plan to Play{" "}
-              <FontAwesomeIcon
-                icon={faCalendarPlus}
-                className="dropdown-menu-icon"
-              />
-            </span>
-          </button>
-          <button
-            className="dropdown-menu-item"
-            onClick={handleDroppedButtonClick}
-          >
-            <span className="dropdown-menu-label dropped">
-              Dropped{" "}
-              <FontAwesomeIcon icon={faTrash} className="dropdown-menu-icon" />
-            </span>
-          </button>
-          <button
-            className="dropdown-menu-item"
-            onClick={handleOnHoldButtonClick}
-          >
-            <span className="dropdown-menu-label on-hold">
-              On-Hold{" "}
-              <FontAwesomeIcon icon={faPause} className="dropdown-menu-icon" />
-            </span>
-          </button>
+          <li className="dropdown-menu-item">
+            <button onClick={handleCurrentlyButtonClick}>
+              <span className="dropdown-menu-label">
+                Currently Playing{" "}
+                <FontAwesomeIcon icon={faPlay} className="dropdown-menu-icon" />
+              </span>
+            </button>
+          </li>
+          <li className="dropdown-menu-item">
+            <button onClick={handleFinishedPlayingButton}>
+              <span className="dropdown-menu-label finished">
+                Finished Playing{" "}
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className="dropdown-menu-icon"
+                />
+              </span>
+            </button>
+          </li>
+          <li className="dropdown-menu-item">
+            <button onClick={handlePlanToPlayButtonClick}>
+              <span className="dropdown-menu-label plan">
+                Plan to Play{" "}
+                <FontAwesomeIcon
+                  icon={faCalendarPlus}
+                  className="dropdown-menu-icon"
+                />
+              </span>
+            </button>
+          </li>
+          <li className="dropdown-menu-item">
+            <button onClick={handleDroppedButtonClick}>
+              <span className="dropdown-menu-label">
+                Dropped{" "}
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="dropdown-menu-icon"
+                />
+              </span>
+            </button>
+          </li>
+          <li className="dropdown-menu-item">
+            <button onClick={handleOnHoldButtonClick}>
+              <span className="dropdown-menu-label">
+                On-Hold{" "}
+                <FontAwesomeIcon
+                  icon={faPause}
+                  className="dropdown-menu-icon"
+                />
+              </span>
+            </button>
+          </li>
         </ul>
       )}
     </div>

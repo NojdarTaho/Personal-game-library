@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import { LibraryContext } from "../../context/LibraryContext";
+import { CollectionContext } from "../../context/CollectionContext";
 import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 
 const GameLibrary = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { collection } = useContext(LibraryContext);
+  const { collectionIds } = useContext(CollectionContext);
 
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?ids=${collection.join(",")}&key=${apiKey}`
+    `https://api.rawg.io/api/games?ids=${collectionIds.join(",")}&key=${apiKey}`
   );
 
   const [addedGame, setAddedGame] = useState([]);
@@ -16,11 +16,13 @@ const GameLibrary = () => {
   const games = data && data.results;
 
   useEffect(() => {
-    if (games && collection) {
-      const favourites = games.filter((game) => collection.includes(game.id));
+    if (games && collectionIds) {
+      const favourites = games.filter((game) =>
+        collectionIds.includes(game.id)
+      );
       setAddedGame(favourites);
     }
-  }, [games, collection]);
+  }, [games, collectionIds]);
 
   if (error) {
     return <div>{error}</div>;

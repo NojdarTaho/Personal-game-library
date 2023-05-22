@@ -1,11 +1,11 @@
-import { LibraryContext } from "../../context/LibraryContext";
+import { DroppedContext } from "../../context/DroppedContext";
 import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
 const Dropped = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { droppedId } = useContext(LibraryContext);
+  const { droppedId } = useContext(DroppedContext);
 
   const { data, isPending, error } = useFetch(
     `https://api.rawg.io/api/games?ids=${droppedId.join(",")}&key=${apiKey}`

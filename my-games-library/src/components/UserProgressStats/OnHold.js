@@ -1,11 +1,11 @@
-import { LibraryContext } from "../../context/LibraryContext";
+import { OnHoldContext } from "../../context/OnHoldContext";
 import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
 const OnHold = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { onHoldId } = useContext(LibraryContext);
+  const { onHoldId } = useContext(OnHoldContext);
 
   const { data, isPending, error } = useFetch(
     `https://api.rawg.io/api/games?ids=${onHoldId.join(",")}&key=${apiKey}`

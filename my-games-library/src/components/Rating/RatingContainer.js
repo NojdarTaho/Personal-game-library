@@ -1,5 +1,5 @@
-import Rating from "./Rating";
 import { useState, useEffect } from "react";
+import Rating from "./Rating";
 
 const RatingContainer = ({ gameId }) => {
   const [rating, setRating] = useState(() => {
@@ -12,9 +12,9 @@ const RatingContainer = ({ gameId }) => {
   }, [rating, gameId]);
 
   return (
-    <div>
-      <Rating rating={rating} onRating={(rate) => setRating(rate)} count={5} />
-     
+    <div className="rating-container">
+      <Rating rating={rating} onRating={setRating} count={5} />
+      <span className="rating-value">{rating}</span>
     </div>
   );
 };

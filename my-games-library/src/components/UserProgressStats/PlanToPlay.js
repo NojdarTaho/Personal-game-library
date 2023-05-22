@@ -1,11 +1,11 @@
-import { LibraryContext } from "../../context/LibraryContext";
+import { PlanToPlayContext } from "../../context/PlanToPlayContext";
 import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
 const PlanToPlay = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { planToPlayId } = useContext(LibraryContext);
+  const { planToPlayId } = useContext(PlanToPlayContext);
 
   const { data, isPending, error } = useFetch(
     `https://api.rawg.io/api/games?ids=${planToPlayId.join(",")}&key=${apiKey}`

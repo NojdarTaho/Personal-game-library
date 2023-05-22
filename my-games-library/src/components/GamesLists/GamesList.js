@@ -8,10 +8,18 @@ const GamesList = ({ games }) => {
       {games.map((game) => (
         <li className="games--item" key={game.id}>
           <div className="game">
-            <DropDownStats gameId={game.id} />
+            <div className="game-list-imported-contents-container">
+              <div className="game-list-imported-contents">
+                <BookmarkButton gameId={game.id} />
+              </div>
+              <div className="game-list-imported-contents">
+                <RatingContainer gameId={game.id} />
+              </div>
+              <div className="game-list-imported-contents">
+                <DropDownStats gameId={game.id} />
+              </div>
+            </div>
 
-            <BookmarkButton gameId={game.id} />
-            <RatingContainer gameId={game.id} />
             <Link to={`/games/${game.id}`}>
               <div className="game-name-container">
                 <span className="game-name">{game.name}</span>

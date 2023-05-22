@@ -40,20 +40,9 @@ const NavBar = () => {
             <Link to={"/tags"} className="navbar-dropdown-link">
               Game Tags - <FontAwesomeIcon icon={faTag} />
             </Link>
-            <Link to={"/currently_playing"} className="navbar-dropdown-link">
-              Currently playing - <FontAwesomeIcon icon={faTag} />
-            </Link>
-            <Link to={"/dropped"} className="navbar-dropdown-link">
-              Dropped - <FontAwesomeIcon icon={faTag} />
-            </Link>
-            <Link to={"finished"} className="navbar-dropdown-link">
-              Finished - <FontAwesomeIcon icon={faTag} />
-            </Link>
-            <Link to={"/on_hold"} className="navbar-dropdown-link">
-              OnHold- <FontAwesomeIcon icon={faTag} />
-            </Link>
-            <Link to={"/plan_to_play"} className="navbar-dropdown-link">
-              PlanToPlay - <FontAwesomeIcon icon={faTag} />
+
+            <Link to={"/progress_stats"} className="navbar-dropdown-link">
+              Progress Stats - <FontAwesomeIcon icon={faTag} />
             </Link>
           </div>
         )}
