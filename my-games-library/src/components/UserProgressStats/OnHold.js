@@ -3,27 +3,22 @@ import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
-const FinishedComponent = () => {
+const OnHold = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { finishedPlayingId } = useContext(LibraryContext);
+  const { onHoldId } = useContext(LibraryContext);
 
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?ids=${finishedPlayingId.join(
-      ","
-    )}&key=${apiKey}`
+    `https://api.rawg.io/api/games?ids=${onHoldId.join(",")}&key=${apiKey}`
   );
 
   const [addedGame, setAddedGame] = useState([]);
-  console.log(finishedPlayingId);
   const games = data && data.results;
   useEffect(() => {
-    if (games && finishedPlayingId) {
-      const playing = games.filter((game) =>
-        finishedPlayingId.includes(game.id)
-      );
-      setAddedGame(playing);
+    if (games && onHoldId) {
+      const dropped = games.filter((game) => onHoldId.includes(game.id));
+      setAddedGame(dropped);
     }
-  }, [games, finishedPlayingId]);
+  }, [games, onHoldId]);
 
   if (error) {
     return <div>{error}</div>;
@@ -37,9 +32,9 @@ const FinishedComponent = () => {
       {addedGame.length > 0 ? (
         <GamesList games={addedGame} />
       ) : (
-        <div>No games added to the currently playing page</div>
+        <div>No games added to the On-Hold page</div>
       )}
     </>
   );
 };
-export default FinishedComponent;
+export default OnHold;

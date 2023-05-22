@@ -3,27 +3,23 @@ import useFetch from "../../hooks/useFetch";
 import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
-const FinishedComponent = () => {
+const CurrentlyPlaying = () => {
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
-  const { finishedPlayingId } = useContext(LibraryContext);
+  const { currentlyId } = useContext(LibraryContext);
 
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?ids=${finishedPlayingId.join(
-      ","
-    )}&key=${apiKey}`
+    `https://api.rawg.io/api/games?ids=${currentlyId.join(",")}&key=${apiKey}`
   );
 
   const [addedGame, setAddedGame] = useState([]);
-  console.log(finishedPlayingId);
+  console.log(currentlyId);
   const games = data && data.results;
   useEffect(() => {
-    if (games && finishedPlayingId) {
-      const playing = games.filter((game) =>
-        finishedPlayingId.includes(game.id)
-      );
+    if (games && currentlyId) {
+      const playing = games.filter((game) => currentlyId.includes(game.id));
       setAddedGame(playing);
     }
-  }, [games, finishedPlayingId]);
+  }, [games, currentlyId]);
 
   if (error) {
     return <div>{error}</div>;
@@ -42,4 +38,5 @@ const FinishedComponent = () => {
     </>
   );
 };
-export default FinishedComponent;
+
+export default CurrentlyPlaying;

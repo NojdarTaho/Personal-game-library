@@ -17,7 +17,6 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <nav className="navbar">
       <div className="navbar-dropdown">
@@ -41,8 +40,20 @@ const NavBar = () => {
             <Link to={"/tags"} className="navbar-dropdown-link">
               Game Tags - <FontAwesomeIcon icon={faTag} />
             </Link>
-            <Link to={"/stats"} className="navbar-dropdown-link">
-              My Progress - <FontAwesomeIcon icon={faGamepad} />
+            <Link to={"/currently_playing"} className="navbar-dropdown-link">
+              Currently playing - <FontAwesomeIcon icon={faTag} />
+            </Link>
+            <Link to={"/dropped"} className="navbar-dropdown-link">
+              Dropped - <FontAwesomeIcon icon={faTag} />
+            </Link>
+            <Link to={"finished"} className="navbar-dropdown-link">
+              Finished - <FontAwesomeIcon icon={faTag} />
+            </Link>
+            <Link to={"/on_hold"} className="navbar-dropdown-link">
+              OnHold- <FontAwesomeIcon icon={faTag} />
+            </Link>
+            <Link to={"/plan_to_play"} className="navbar-dropdown-link">
+              PlanToPlay - <FontAwesomeIcon icon={faTag} />
             </Link>
           </div>
         )}

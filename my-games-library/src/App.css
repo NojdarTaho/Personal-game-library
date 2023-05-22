@@ -24,6 +24,7 @@ body {
   height: auto;
   max-width: 81em;
   margin: 0 auto;
+  margin-top: 50px;
 }
 .loader-container {
   width: 81em;
@@ -95,15 +96,21 @@ body {
 /* Bookmark Buttons */
 .bookmark-buttons {
   margin: 0px 5px 15px 5px;
-  padding: 0;
+  padding: 8px 15px;
   display: flex;
   align-items: center;
-  background-color: #ff003c
+  background-color: #007bff
+}
+
+.bookmark-buttons:hover {
+  background-color: #0056b3;
+
 }
 .bookmark {
 
   width: 30px;
   cursor: pointer;
+  
 }
 
 /* Game Details */
@@ -211,6 +218,8 @@ body {
   display: block;
   animation: glitch-animation 2s linear 0s infinite;
 }
+
+
 
 @keyframes glitch-animation {
   0% {
@@ -378,12 +387,17 @@ body {
   font-size: 17px;
 }
 .navbar {
-  position: relative;
+  position: fixed; 
+  top: 0; 
   background-color: #000;
   display: flex;
   justify-content: flex-start;
   gap: 30px;
+  width: 100%; 
+  z-index: 999;
+  margin-bottom: 50px;
 }
+
 .home-endpoint {
   display: block;
   text-decoration: none;
@@ -549,7 +563,7 @@ input {
 
 
 /* Progress Stats */
-.progress-stats-container {
+/* .progress-stats-container {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -604,6 +618,104 @@ input {
   height: 16px;
   margin-right: 5px;
 }
+ */
+ /* DropDownStats */
+
+
+ .dropdown-container {
+  position: relative;
+  margin: 2px;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-icon {
+  font-size: 18px;
+  color: #333;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 20px;
+  right: 15;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+}
+
+.dropdown-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu
+
+ /* Search Bar */
+
+.search-bar-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.search-bar-container {
+  background-color: #45aefb;
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar-container label {
+  margin-bottom: 10px;
+}
+
+.search-bar-container input,
+.search-bar-container select {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar-container button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-bar-container button:hover {
+  background-color: #0056b3;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 
 
 

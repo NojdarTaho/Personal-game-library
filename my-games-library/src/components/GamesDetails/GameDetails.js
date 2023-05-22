@@ -7,16 +7,8 @@ import GamePlatforms from "./GamePlatforms";
 import GameRatings from "./GameRatings";
 import GameDescriptions from "./GameDescriptions";
 import GameStores from "./GameStores";
-import { useState } from "react";
-import ProgressStats from "../UserProgressStats/ProgressStats";
-import FinishedComponent from "../UserProgressStats/FinishedComponent";
+
 const GameDetails = () => {
-  const [progress, setProgress] = useState(null);
-
-  const handleProgressSelect = (progress) => {
-    setProgress(progress);
-  };
-
   const { id } = useParams();
   const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
 
@@ -50,8 +42,6 @@ const GameDetails = () => {
           <GameTags data={data} />
           <GamePlatforms data={data} />
           <GameStores data={data} />
-          <ProgressStats onSelectProgress={handleProgressSelect} />
-          {progress === "Finished Playing" && <FinishedComponent data={data} />}
         </>
       )}
     </div>
