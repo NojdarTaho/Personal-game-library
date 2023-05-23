@@ -7,7 +7,7 @@ Welcome to the GameLibra! This React-based application allows users to explore a
 - **Game Search**: Easily search for games by year using the search bar. Users can also choose their preferred genres and tags to browse games that match their interests.
 - **Rating System**: A star-based rating system allows users to rate games.
 - **Collection Page**:  Users can save their favorite games to a dedicated collection page, providing convenient access to their preferred titles..
-- **Progress Tracking: GameLibra enables users to track their progress with each game. They can easily keep track of the games they are currently playing, games they have dropped, games they plan to play, and games they have completed. Additionally, users can set games on hold to keep track of their pending titles.
+- **Progress Tracking**: GameLibra enables users to track their progress with each game. They can easily keep track of the games they are currently playing, games they have dropped, games they plan to play, and games they have completed. Additionally, users can set games on hold to keep track of their pending titles.
 
 
 
