@@ -10,7 +10,7 @@ import GameStores from "./GameStores";
 
 const GameDetails = () => {
   const { id } = useParams();
-  const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const { data, isPending, error } = useFetch(
     `https://api.rawg.io/api/games/${id}?key=${apiKey}`

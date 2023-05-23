@@ -1,3 +1,6 @@
+
+
+
 /* Font Face */
 @font-face {
   font-family: "Oxanium";
@@ -18,7 +21,9 @@ body {
 
 .content-container {
   display: flex;
- 
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
   padding-top: 30px;
   width: 100%;
   height: auto;
@@ -37,6 +42,7 @@ body {
 }
 
 /* Games List */
+
 
 
 .games-list {
@@ -219,8 +225,8 @@ body {
   margin-right: 5px;
   padding: 15px 20px;
   background-color: #46dffb;
-  clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
-  color: black;
+  clip-path: polygon(92% 0, 100% 25%,100% 100%, 8% 100%, 0% 75%, 0 0);
+  color: black; 
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
@@ -566,8 +572,8 @@ input {
   margin: 10px 0;
 }
 
-/* Home Container */
-.home-container {
+/* Welcome Page */
+.genre-page-image-container {
   background-image: url("./icons/655992.jpg");
   background-color: #0c111b;
   padding: 20px;
@@ -577,21 +583,62 @@ input {
   background-position: center;
 }
 
-.home-title {
-  color: #ffd800;
+.genre-image-page-title{
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 30em;
 }
 
-.home-description {
-  color: #ffd800;
-  font-size: 16px;
+.home-page-entry {
+  color: red;
+  font-size: 48px; 
+  margin-bottom: 30px;
+}
+.home-page {
+  text-align: center;
+  padding: 50px;
 }
 
+.home-page h1 {
+  color: #333333; 
+  font-size: 36px; 
+}
+
+.home-page p {
+  color: #feef00;
+  font-size: 28px; 
+  margin-bottom: 30px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature {
+  width: 300px; 
+  clip-path: polygon(92% 0, 100% 25%,100% 100%, 8% 100%, 0% 75%, 0 0);
+  opacity: 0.7;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f2f2f2; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.feature h2 {
+  color: #333333; 
+  font-size: 24px; 
+}
+
+.feature p {
+  color: #666666; 
+  font-size: 16px; 
+  margin-top: 10px;
+}
 
 /* Progress Stats */
-
 .progress-stats-container {
   display: flex;
   justify-content: center;
@@ -608,22 +655,23 @@ input {
 }
 
 .card:nth-child(1) {
-  background-color: #00ffd2; 
+  background-color: #00ffd2;
 }
 
 .card:nth-child(2) {
-  background-color: #ff003c; 
+  background-color: #ff003c;
 }
 
 .card:nth-child(3) {
-  background-color: #45aefb; 
+  background-color: #45aefb;
 }
+
 .card:nth-child(4) {
-  background-color: #4CAF50; 
+  background-color: #4CAF50;
 }
 
 .card:nth-child(5) {
-  background-color: #FF5722; 
+  background-color: #FF5722;
 }
 
 .card {
@@ -633,7 +681,6 @@ input {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  
 }
 
 .icon {
@@ -765,12 +812,12 @@ input {
 }
 
 .search-bar-container {
-  background-color: #45aefb;
   border-radius: 4px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .search-bar-container label {
@@ -807,9 +854,31 @@ input {
 
 
 
+@media (max-width: 768px) {
+  .progress-stats-container {
+    width: 100%;
+  }
+
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .genre-games-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+}
+
 
 /* Media Queries */
 @media (max-width: 480px) {
+  
+  .genre-games-list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: 15px;
+  }
+  .page-content {
+    grid-template-columns: 1fr;
+  }
   .games--item {
     width: calc(100% - 20px);
   }
@@ -824,6 +893,13 @@ input {
 
   .game-details {
     padding: 20px;
+  }
+  .game-details h2 {
+    font-size: 20px;
+  }
+
+  .game-details p {
+    font-size: 12px;
   }
 
   .game-name {
@@ -845,7 +921,7 @@ input {
     margin-bottom: 20px;
   }
 
-  .home-title {
+  .genre-image-page-title {
     font-size: 24px;
     margin-bottom: 2em;
   }
@@ -856,6 +932,7 @@ input {
 }
 
 @media (min-width: 768px) {
+ 
   .games--item {
     width: calc(50% - 20px);
   }
@@ -873,7 +950,7 @@ input {
     margin-bottom: 30px;
   }
 
-  .home-title {
+  .genre-image-page-title {
     font-size: 32px;
     margin-bottom: 6em;
   }
@@ -882,6 +959,7 @@ input {
     font-size: 18px;
   }
 }
+
 
 @media (min-width: 1024px) {
   .games--item {

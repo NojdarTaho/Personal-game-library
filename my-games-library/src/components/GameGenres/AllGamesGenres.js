@@ -1,8 +1,8 @@
 import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
-import Home from "../Home";
+import WelcomePage from "../WelcomePage";
 const AllGamesGenres = () => {
-  const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const { data, isPending, error } = useFetch(
     `https://api.rawg.io/api/genres?key=${apiKey}`
@@ -19,7 +19,7 @@ const AllGamesGenres = () => {
 
   return (
     <div>
-      <Home />
+      <WelcomePage />
       <ul className="genre-games-list">
         {genres &&
           genres.map((genre) => (

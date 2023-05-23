@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/Nav";
+import NavBar from "./components/NavBar/Nav";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GameLibrary from "./components/GameCollection/GameCollection";

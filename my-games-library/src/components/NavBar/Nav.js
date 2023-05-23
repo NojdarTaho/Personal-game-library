@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faSearch,
-  faEllipsisV,
-  faFire,
   faHome,
+  faFire,
   faGamepad,
   faTag,
+  faChartBar,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
@@ -42,7 +42,7 @@ const NavBar = () => {
             </Link>
 
             <Link to={"/progress_stats"} className="navbar-dropdown-link">
-              Progress Stats - <FontAwesomeIcon icon={faTag} />
+              Progress Stats - <FontAwesomeIcon icon={faChartBar} />
             </Link>
           </div>
         )}
@@ -50,7 +50,7 @@ const NavBar = () => {
       <Link to={"/"} className="home-endpoint">
         <h1>GameLibra</h1>
       </Link>
-      <FontAwesomeIcon className="space-between-icon" icon={faEllipsisV} />
+      <FontAwesomeIcon className="space-between-icon" icon={faHome} />
       <h1 className="home-endpoint"> Home</h1>
     </nav>
   );

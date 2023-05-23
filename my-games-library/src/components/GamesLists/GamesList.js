@@ -1,4 +1,4 @@
-import BookmarkButton from "../BookmarkButton";
+import BookmarkButton from "../GameCollection/BookmarkButton";
 import { Link } from "react-router-dom";
 import RatingContainer from "../Rating/RatingContainer";
 import DropDownStats from "../UserProgressStats/DropDownStats";

@@ -4,7 +4,7 @@ import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
 const CurrentlyPlaying = () => {
-  const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
+  const apiKey = process.env.REACT_APP_API_KEY;
   const { currentlyId } = useContext(CurrentlyPlayingContext);
 
   const { data, isPending, error } = useFetch(

@@ -1,7 +1,7 @@
-import solidBookmark from "../icons/bookmark-solid.svg";
-import regularBookmark from "../icons/bookmark-regular.svg";
+import solidBookmark from "../../icons/bookmark-solid.svg";
+import regularBookmark from "../../icons/bookmark-regular.svg";
 import { useState, useContext, useEffect } from "react";
-import { CollectionContext } from "../context/CollectionContext";
+import { CollectionContext } from "../../context/CollectionContext";
 const BookmarkButton = ({ gameId }) => {
   const { addToCollection, collectionIds } = useContext(CollectionContext);
   const [saved, setSaved] = useState(false);
@@ -13,7 +13,6 @@ const BookmarkButton = ({ gameId }) => {
     setSaved(!saved);
     addToCollection(gameId);
   }
-  console.log(collectionIds);
   return (
     <button className="bookmark-buttons" onClick={buttonClicked}>
       <img

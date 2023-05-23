@@ -4,7 +4,7 @@ import GamesList from "../GamesLists/GamesList";
 import { useContext, useEffect, useState } from "react";
 
 const OnHold = () => {
-  const apiKey = "8fc295b55f7144f7b20c401bf545e96a";
+  const apiKey = process.env.REACT_APP_API_KEY;
   const { onHoldId } = useContext(OnHoldContext);
 
   const { data, isPending, error } = useFetch(
