@@ -8,8 +8,15 @@ function SearchBar() {
   const [selectedYear, setSelectedYear] = useState("");
 
   const apiKey = process.env.REACT_APP_API_KEY;
+
+  // Generate the dates parameter based on the selected year
+  let dates = "";
+  if (selectedYear !== "all") {
+    dates = `&dates=${selectedYear}-01-01,${selectedYear}-12-31`;
+  }
+
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?page_size=40&search=${searchedQuery}&key=${apiKey}&dates=${selectedYear}-01-01,${selectedYear}-12-31`
+    `https://api.rawg.io/api/games?page_size=40&search=${searchedQuery}&key=${apiKey}${dates}`
   );
 
   const games = data && data.results;
@@ -48,7 +55,7 @@ function SearchBar() {
         />
         <label htmlFor="genre-select">Release Date</label>
         <select id="genre-select" onChange={handleGenreChange}>
-          <option value="">All Years</option>
+          <option value="all">All Years</option>
           {options}
         </select>
 
