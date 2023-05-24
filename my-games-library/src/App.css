@@ -613,71 +613,42 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 81em;
-  margin: 0 auto;
-  height: 100vh;
-}
-
-.page-content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
-.card:nth-child(1) {
-  background-color: #00ffd2;
-}
-
-.card:nth-child(2) {
-  background-color: #ff003c;
-}
-
-.card:nth-child(3) {
-  background-color: #45aefb;
-}
-
-.card:nth-child(4) {
-  background-color: #4caf50;
-}
-
-.card:nth-child(5) {
-  background-color: #ff5722;
-}
-
-.card {
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 20px;
 }
 
-.icon {
-  font-size: 24px;
-  margin-bottom: 10px;
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 0 0 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+}
+
+.card:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .card-image {
   width: 100%;
-  height: 100%;
+  max-height: 200px;
   object-fit: cover;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
 
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50%;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.icon {
+  font-size: 24px;
 }
 
 /* DropDownStats */
@@ -818,7 +789,39 @@ input {
   height: 100vh;
 }
 
+/* Media Queries */
+
 @media (max-width: 768px) {
+  .progress-stats-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .page-content {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-content {
+    height: auto;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+
   .progress-stats-container {
     width: 100%;
   }
@@ -826,21 +829,23 @@ input {
   .page-content {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .genre-games-list {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
   }
 }
 
-/* Media Queries */
 @media (max-width: 480px) {
   .genre-games-list {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-gap: 15px;
   }
+
   .page-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 3fr;
   }
+
   .games--item {
     width: calc(100% - 20px);
   }
@@ -856,16 +861,13 @@ input {
   .game-details {
     padding: 20px;
   }
+
   .game-details h2 {
     font-size: 20px;
   }
 
   .game-details p {
     font-size: 12px;
-  }
-
-  .game-name {
-    font-size: 20px;
   }
 
   .game-description {
@@ -891,33 +893,29 @@ input {
   .home-description {
     font-size: 14px;
   }
-}
 
-@media (min-width: 768px) {
-  .games--item {
-    width: calc(50% - 20px);
+  .progress-stats-container {
+    padding: 0 10px;
   }
 
-  .game {
-    padding: 20px;
+  .card {
+    padding: 10px;
   }
 
-  .game-name {
-    font-size: 20px;
+  .card-image {
+    height: 150px;
   }
 
-  .home-container {
-    padding: 30px;
-    margin-bottom: 30px;
+  .card-title {
+    font-size: 14px;
   }
 
-  .genre-image-page-title {
-    font-size: 32px;
-    margin-bottom: 6em;
-  }
-
-  .home-description {
+  .icon {
     font-size: 18px;
+  }
+
+  .page-content {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 
@@ -964,5 +962,9 @@ input {
 
   .home-description {
     font-size: 24px;
+  }
+
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
