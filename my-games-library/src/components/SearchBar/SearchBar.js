@@ -2,14 +2,21 @@ import { useState } from "react";
 import GamesList from "../GamesLists/GamesList";
 import useFetch from "../../hooks/useFetch";
 
+const searchedYear = "";
 function SearchBar() {
   const [query, setQuery] = useState("");
   const [searchedQuery, setSearchedQuery] = useState("");
-  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedYear, setSelectedYear] = useState(searchedYear);
 
   const apiKey = process.env.REACT_APP_API_KEY;
+
+  let dates = "";
+  if (selectedYear !== searchedYear) {
+    dates = `&dates=${selectedYear}-01-01,${selectedYear}-12-31`;
+  }
+
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?page_size=40&search=${searchedQuery}&key=${apiKey}&dates=${selectedYear}-01-01,${selectedYear}-12-31`
+    `https://api.rawg.io/api/games?page_size=40&search=${searchedQuery}&key=${apiKey}${dates}`
   );
 
   const games = data && data.results;
@@ -18,7 +25,7 @@ function SearchBar() {
     setSearchedQuery(query);
   };
 
-  const handleGenreChange = (e) => {
+  const handleYearChange = (e) => {
     setSelectedYear(e.target.value);
   };
 
@@ -29,6 +36,8 @@ function SearchBar() {
   if (isPending) {
     return <div className="loader-container"> {isPending}</div>;
   }
+  console.log(searchedQuery);
+  console.log(games);
 
   const currentYear = new Date().getFullYear();
   const options = Array.from({ length: currentYear - 1979 }, (_, index) => (
@@ -47,8 +56,8 @@ function SearchBar() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <label htmlFor="genre-select">Release Date</label>
-        <select id="genre-select" onChange={handleGenreChange}>
-          <option value="">All Years</option>
+        <select id="genre-select" onChange={handleYearChange}>
+          <option value={searchedYear}>All Years</option>
           {options}
         </select>
 
