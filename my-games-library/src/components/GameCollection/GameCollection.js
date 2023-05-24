@@ -8,7 +8,7 @@ const GameLibrary = () => {
   const { collectionIds } = useContext(CollectionContext);
 
   const { data, isPending, error } = useFetch(
-    `https://api.rawg.io/api/games?ids=${collectionIds.join(",")}&key=${apiKey}`
+    `https://api.rawg.io/api/games?ids=${collectionIds}&key=${apiKey}`
   );
 
   const [addedGame, setAddedGame] = useState([]);
