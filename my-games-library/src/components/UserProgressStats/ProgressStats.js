@@ -23,9 +23,7 @@ const ProgressStats = () => {
               <FontAwesomeIcon icon={faPlay} />
             </div>
           </Link>
-
           <span className="card-title">Currently Playing</span>
-
           <div className="content">
             <img className="card-image" src={playing} alt="Currently Playing" />
           </div>
@@ -37,7 +35,6 @@ const ProgressStats = () => {
             </div>
           </Link>
           <span className="card-title">Dropped</span>
-
           <div className="content">
             <img className="card-image" src={dropped} alt="Dropped" />
           </div>
@@ -48,9 +45,7 @@ const ProgressStats = () => {
               <FontAwesomeIcon icon={faPause} />
             </div>
           </Link>
-
           <span className="card-title">On Hold</span>
-
           <div className="content">
             <img className="card-image" src={onHold} alt="On Hold" />
           </div>
@@ -61,9 +56,7 @@ const ProgressStats = () => {
               <FontAwesomeIcon icon={faCalendarPlus} />
             </div>
           </Link>
-
           <span className="card-title">Plan to Play</span>
-
           <div className="content">
             <img className="card-image" src={planToPlay} alt="Plan to Play" />
           </div>
@@ -74,10 +67,7 @@ const ProgressStats = () => {
               <FontAwesomeIcon icon={faCheck} />
             </div>
           </Link>
-
-          <div className="content">
-            <span className="card-title">Completed</span>
-          </div>
+          <span className="card-title">Completed</span>
           <img className="card-image" src={finished} alt="Completed" />
         </div>
       </div>
